@@ -2,7 +2,7 @@
 %define plugin	loadepg
 %define name	vdr-plugin-%plugin
 %define version	0.1.11
-%define rel	2
+%define rel	3
 
 Summary:	VDR plugin: Load EPG Data sent to Mediahighway receivers
 Name:		%name

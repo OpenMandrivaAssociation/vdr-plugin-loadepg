@@ -1,19 +1,21 @@
 
 %define plugin	loadepg
 %define name	vdr-plugin-%plugin
-%define version	0.1.11
-%define rel	3
+%define version	0.1.12
+%define rel	1
 
 Summary:	VDR plugin: Load EPG Data sent to Mediahighway receivers
 Name:		%name
 Version:	%version
 Release:	%mkrel %rel
 Group:		Video
-License:	GPL
+License:	GPL+
 URL:		http://kikko77.altervista.org/
 Source:		vdr-%plugin-%version.tgz
+Patch0:		loadepg-02_vdr-1.5.14-with-api-wrapper.dpatch
+Patch1:		loadepg-02_vdr-1.5.15.dpatch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	vdr-devel >= 1.4.1-6
+BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
 
 %description
@@ -21,6 +23,9 @@ Loads EPG Data sent to Mediahighway receivers (Canal+ group).
 
 %prep
 %setup -q -n %plugin-%version
+%patch0 -p1
+%patch1 -p1
+%vdr_plugin_prep
 
 %vdr_plugin_params_begin %plugin
 # alternative configuration directory

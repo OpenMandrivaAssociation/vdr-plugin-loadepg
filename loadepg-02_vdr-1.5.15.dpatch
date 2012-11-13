@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02_vdr-1.5.15.dpatch by Tobias Grimm <tg@e-tobi.net>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad vdr-plugin-loadepg-0.1.12~/loadepg.c vdr-plugin-loadepg-0.1.12/loadepg.c
+--- vdr-plugin-loadepg-0.1.12~/loadepg.c	2008-02-08 19:32:58.000000000 +0100
++++ vdr-plugin-loadepg-0.1.12/loadepg.c	2008-02-19 18:28:41.000000000 +0100
+@@ -1090,7 +1090,7 @@
+         EpgChannel = new cChannel();
+         *EpgChannel = *OldChannel;
+ 	sscanf( EpgProviderValue1[MenuItem], "%[^:]:%[^:]:%[^:]:%[^:]:%[^:]", ProviderName, Frequency, Polarization, SourceName, SymbolRate );
+-#if APIVERSNUM >= 10514
++#if (APIVERSNUM == 10514) || (APIVERSNUM >= 10700)
+         EpgChannel->cChannel::SetSatTransponderData( cSource::FromString( SourceName ), atoi( Frequency ), Polarization[0], atoi( SymbolRate ), DVBFE_FEC_AUTO, DVBFE_MOD_AUTO, DVBFE_DELSYS_DVBS, DVBFE_ROLLOFF_UNKNOWN );
+ #else	
+ 	EpgChannel->cChannel::SetSatTransponderData( cSource::FromString( SourceName ), atoi( Frequency ), Polarization[0], atoi( SymbolRate ), FEC_AUTO );

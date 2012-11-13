@@ -1,0 +1,20 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02_vdr-1.5.14-with-api-wrapper.dpatch by Tobias Grimm <tg@e-tobi.net>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad vdr-plugin-loadepg-0.1.12~/loadepg.c vdr-plugin-loadepg-0.1.12/loadepg.c
+--- vdr-plugin-loadepg-0.1.12~/loadepg.c	2008-02-15 23:26:37.000000000 +0100
++++ vdr-plugin-loadepg-0.1.12/loadepg.c	2008-02-15 23:30:13.000000000 +0100
+@@ -7,6 +7,9 @@
+  */
+ 
+ #include "loadepg.h"
++#ifdef DVB_MULTIPROTO_WRAPPER
++#include <vdr/dvb_api_wrapper.h>
++#endif
+ 
+ static const char *VERSION        = "0.1.12";
+ #if APIVERSNUM >= 10507

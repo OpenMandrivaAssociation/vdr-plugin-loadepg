@@ -2,7 +2,7 @@
 %define plugin	loadepg
 %define name	vdr-plugin-%plugin
 %define version	0.1.12
-%define rel	5
+%define rel	6
 
 Summary:	VDR plugin: Load EPG Data sent to Mediahighway receivers
 Name:		%name
@@ -43,12 +43,6 @@ perl -pi -e "s,^FILE,# FILE," loadepg.conf
 
 install -d -m755 %{buildroot}%{vdr_plugin_cfgdir}
 install -m644 *.equiv *.conf %{buildroot}%{vdr_plugin_cfgdir}
-
-%post
-%vdr_plugin_post %plugin
-
-%postun
-%vdr_plugin_postun %plugin
 
 %files -f %plugin.vdr
 %defattr(-,root,root)

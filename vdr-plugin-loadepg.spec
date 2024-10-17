@@ -10,7 +10,7 @@ Version:	%version
 Release:	%mkrel %rel
 Group:		Video
 License:	GPL+
-URL:		http://kikko77.altervista.org/
+URL:		https://kikko77.altervista.org/
 Source:		vdr-%plugin-%version.tgz
 Patch0:		loadepg-02_vdr-1.5.14-with-api-wrapper.dpatch
 Patch1:		loadepg-02_vdr-1.5.15.dpatch

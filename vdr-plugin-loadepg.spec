@@ -7,7 +7,7 @@
 Summary:	VDR plugin: Load EPG Data sent to Mediahighway receivers
 Name:		%name
 Version:	%version
-Release:	%mkrel %rel
+Release:	%rel.1
 Group:		Video
 License:	GPL+
 URL:		https://kikko77.altervista.org/
